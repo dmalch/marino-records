@@ -1,0 +1,51 @@
+from verso.ru.dsl import (Month, RecordDefaults, Side, marriage, marriage_month, marriage_records,
+                          person)
+from verso.ru.dsl.statuses import PEASANT_FEMALE, PEASANT_MAIDEN, PEASANT_MALE, WIDOW
+
+# Source: ГАРО ф.627 оп.255 д.167 (Сергиевская церковь с. Эммануиловка, 1861).
+# Read in full for Марьино on 2026-09-27; records added by that sweep are reviewed=False.
+# The sureties' village is not written in this book; the default residence stands for them.
+marino_marriages_1861 = marriage_records(
+    "ГАРО", "627", "255", "167", "Эммануиловка", "Сергиевская", 1861,
+    *marriage_month(Month.FEBRUARY,
+                    marriage(1, 12,
+                             groom=person("Даніилъ", "Ѳедоровъ", "Головачевъ"), groom_age=21, groom_marriage_num=1,
+                             bride=person("Акилина", "Филипова", "Казейкина", residence="Алеменево", status=WIDOW), bride_age=27, bride_marriage_num=2,
+                             witness1=person("Никита", "Яковлевъ", "Кирпичевъ", side=Side.GROOM),
+                             witness2=person("Родіонъ", "Павловъ", "Кирпичевъ", side=Side.GROOM),
+                             witness3=person("Евграфъ", "Филатовъ", "Костичевъ", side=Side.BRIDE),
+                             witness4=person("Василій", "Димитріевъ", "Брыковъ", side=Side.BRIDE)),
+                    ),
+    *marriage_month(Month.APRIL,
+                    marriage(4, 30,
+                             groom=person("Козьма", "Кирѣевъ", "Свищовъ"), groom_age=19, groom_marriage_num=1,
+                             bride=person("Евдокія", "Васильева", "Прошкина", residence="Николаевка"), bride_age=19, bride_marriage_num=1,
+                             witness1=person("Егоръ", "Ѳедоровъ", "Калугинъ", side=Side.GROOM),
+                             witness2=person("Димитрій", "Захаровъ", "Сеничкинъ", side=Side.GROOM),
+                             witness3=person("Михей", "Савельевъ", "Кленинъ", residence="Николаевка", side=Side.BRIDE, comment="деревня не названа"),
+                             witness4=person("Павелъ", "Феофановъ", "Инчиковъ", side=Side.BRIDE, comment="деревня не названа")),
+                    ),
+    *marriage_month(Month.AUGUST,
+                    marriage(8, 30,
+                             groom=person("Антонъ", "Григорьевъ", "Головачевъ", comment="«Головачевъ» надписано над зачёркнутым «Швейкинъ»; в 1863 г. «Антонъ Григорьевъ Уточкинъ»"), groom_age=25, groom_marriage_num=1,
+                             bride=person("Матрона", "Нестерова", "Колина", residence="Купля", comment="«Матрона Нестерова Колина» надписаны над зачёркнутыми «Параскева Петрова Коновалова» (невеста №10)"), bride_age=18, bride_marriage_num=1,
+                             witness1=person("Егоръ", "Ѳедоровъ", "Калугинъ", side=Side.GROOM),
+                             witness2=person("Яковъ", "Мамантовъ", "Бычковъ", side=Side.GROOM),
+                             witness3=person("Григорій", "Ивановъ", "Петелинъ", side=Side.BRIDE),
+                             witness4=person("Борисъ", "Григорьевъ", "Жарковъ", side=Side.BRIDE)),
+                    marriage(10, 30,
+                             groom=person("Иванъ", "Григорьевъ", "Швейкинъ"), groom_age=32, groom_marriage_num=1,
+                             bride=person("Параскева", "Петрова", "Коновалова", residence="Купля"), bride_age=20, bride_marriage_num=1,
+                             witness1=person("Ѳеодоръ", "Ѳеодоровъ", "Воробьевъ", side=Side.GROOM),
+                             witness2=person("Григорій", "Васильевъ", "Воробьевъ", side=Side.GROOM),
+                             witness3=person("Иванъ", "Климовъ", "Барсуковъ", side=Side.BRIDE, comment="деревня не названа"),
+                             witness4=person("Алексѣй", "Спиридоновъ", "Спирковъ", side=Side.BRIDE, comment="деревня не названа")),
+                    ),
+    defaults=RecordDefaults(
+        residence="Марьино",
+        status_male=PEASANT_MALE,
+        status_female=PEASANT_FEMALE,
+        status_bride=PEASANT_MAIDEN,
+        status_groom=PEASANT_MALE,
+    ),
+)

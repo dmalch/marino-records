@@ -1,0 +1,51 @@
+from verso.ru.dsl import (Month, RecordDefaults, Side, marriage, marriage_month, marriage_records,
+                          person)
+from verso.ru.dsl.statuses import MAIDEN, PEASANT_FEMALE, PEASANT_MAIDEN, TEMP_OBLIGED_PEASANT_MALE
+
+# Source: ГАРО ф.627 оп.255 д.677 (Сергиевская церковь с. Эммануиловка, 1864).
+# Read in full for Марьино on 2026-09-27; records added by that sweep are reviewed=False.
+# Sureties from Марьино are mostly written without a village; the default residence stands for them.
+marino_marriages_1864 = marriage_records(
+    "ГАРО", "627", "255", "677", "Эммануиловка", "Сергиевская", 1864,
+    *marriage_month(Month.FEBRUARY,
+                    marriage(2, 23,
+                             groom=person("Тимофей", "Барисовъ", "Калугинъ"), groom_age=18, groom_marriage_num=1,
+                             bride=person("Лукерья", "Андрѣева", "Воробьева", status=MAIDEN), bride_age=17,
+                             witness1=person("Данилъ", "Емельяновъ", "Патапушкинъ", side=Side.GROOM, comment="деревня не названа"),
+                             witness2=person("Егоръ", "Ѳеодоровъ", "Калугинъ", side=Side.GROOM),
+                             witness3=person("Ѳеодоръ", "Ѳеодоровъ", "Воробьевъ", side=Side.BRIDE),
+                             witness4=person("Григорій", "Ивановъ", "Петелинъ", side=Side.BRIDE)),
+                    ),
+    *marriage_month(Month.APRIL,
+                    marriage(5, 26,
+                             groom=person("Миронъ", "Егоровъ", "Емелинъ", comment="фамилия сверено владельцем 28.09.2026"), groom_age=23, groom_marriage_num=1,
+                             bride=person("Анна", "Васильева", "Зрюева", status=MAIDEN), bride_age=18,
+                             witness1=person("Николай", "Егоровъ", "Петелинъ", side=Side.GROOM),
+                             witness2=person("Тимоѳей", "Барисовъ", "Калугинъ", side=Side.GROOM),
+                             witness3=person("Ѳеодоръ", "Захаровъ", "Зрюевъ", side=Side.BRIDE),
+                             witness4=person("Яковъ", "Яковлевъ", "Калугинъ", side=Side.BRIDE)),
+                    marriage(7, 26,
+                             groom=person("Егор", "Яковлев", "Мыльников"), groom_age=18, groom_marriage_num=1,
+                             bride=person("Пелагея", "Александрова", "Шелинова", residence="Алеменево"), bride_age=19,
+                             witness1=person("Иван", "Савельев", "Грикин"),
+                             witness2=person("Иван", "Спиридонов", "Чеменев"),
+                             witness3=person("Яков", "Григорьев", "Грибин", residence="Алеменево"),
+                             witness4=person("Семен", "Васильев", "Юргов", residence="Алеменево")),
+                    ),
+    *marriage_month(Month.JUNE,
+                    marriage(11, 12,
+                             groom=person("Степанъ", "Матвѣевъ", "Черкасовъ"), groom_age=38, groom_marriage_num=2,
+                             bride=person("Ксенія", "Дмитріева", "Колбукова", residence="Снова Здорова", status="крестьянка собственица"), bride_age=29, bride_marriage_num=1,
+                             witness1=person("Иванъ", "Никитинъ", "Толмачевъ", side=Side.GROOM),
+                             witness2=person("Григорій", "Васильевъ", "Воробьевъ", side=Side.GROOM),
+                             witness3=person("Алексѣй", "Ефимовъ", "Ласевичевъ", side=Side.BRIDE),
+                             witness4=person("Егоръ", "Ѳеодоровъ", "Калугинъ", side=Side.BRIDE)),
+                    ),
+    defaults=RecordDefaults(
+        residence="Марьино",
+        status_male=TEMP_OBLIGED_PEASANT_MALE,
+        status_female=PEASANT_FEMALE,
+        status_bride=PEASANT_MAIDEN,
+        status_groom=TEMP_OBLIGED_PEASANT_MALE,
+    ),
+)

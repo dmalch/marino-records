@@ -1,0 +1,46 @@
+from verso.ru.dsl import (Gender, Month, RecordDefaults, Relationship, death, death_month,
+                          death_records, person, relative)
+from verso.ru.dsl.causes_of_death import DECREPITUDE, SCARLATINA
+from verso.ru.dsl.statuses import PEASANT_FEMALE, PEASANT_MALE, PEASANT_WIDOW
+
+# Source: ГАРО ф.627 оп.255 д.503 (Сергиевская церковь с. Эммануиловка, 1901).
+# Read in full for Марьино on 2026-09-26; records added by that sweep are reviewed=False.
+marino_deaths_1901 = death_records(
+    "ГАРО", "627", "255", "503", "Эммануиловка", "Сергиевская", 1901,
+    *death_month(Month.JANUARY,
+                 death(1, Gender.FEMALE, None, 1, reviewed=False,
+                       deceased=person("Анисія", "Спиридонова", "Моисеева", status=PEASANT_WIDOW), age=None,
+                       cause_of_death=DECREPITUDE,
+                       comment="умерла 30 декабря 1900 г., погребена 1 января 1901 г. — день смерти в другом году не записан в DSL; графа возраста в корешке"),
+                 death(2, Gender.MALE, 18, 20, reviewed=False,
+                       deceased=person("Павелъ"), age=None,
+                       relatives=[relative(person("Захарій", "Назаріевъ", "Калугинъ"), Relationship.FATHER)],
+                       comment="родился 12 декабря 1900 г. (1900 м.№49); графа возраста в корешке"),
+                 ),
+    *death_month(Month.FEBRUARY,
+                 death(8, Gender.FEMALE, 13, 15,
+                       deceased=person("Агафья"), age=None,
+                       relatives=[relative(person("Иоанн", "Симеонов", "Мыльников"), Relationship.FATHER)],
+                       cause_of_death="?",
+                       comment="возраст и причина смерти неразборчивы в источнике"),
+                 death(6, Gender.MALE, 14, 16,
+                       deceased=person("Иоанн"), age=None,
+                       relatives=[relative(person("Георгий", "Иоаннов", "Мыльников"), Relationship.FATHER)],
+                       cause_of_death=SCARLATINA, comment="возраст не указан в источнике"),
+                 ),
+    *death_month(Month.MARCH,
+                 death(9, Gender.FEMALE, 6, 8, reviewed=False,
+                       deceased=person("Параскева", "Васильева", "Швейкина", status=PEASANT_WIDOW), age=None,
+                       comment="графа возраста в корешке"),
+                 death(10, Gender.FEMALE, 25, 27, reviewed=False,
+                       deceased=person("Матрона", "Евдокимова", "Калугина", status=PEASANT_WIDOW), age=None,
+                       comment="«отъ … желудка»; графа возраста в корешке"),
+                 ),
+    *death_month(Month.SEPTEMBER,
+                 death(14, Gender.MALE, 8, 10, reviewed=False,
+                       deceased=person("Георгій"), age=None,
+                       relatives=[relative(person("Сергій", "Яковлевъ", "Швейкинъ"), Relationship.FATHER)],
+                       comment="графа возраста в корешке"),
+                 ),
+    defaults=RecordDefaults(residence="Марьино", status_male=PEASANT_MALE, status_female=PEASANT_FEMALE),
+)

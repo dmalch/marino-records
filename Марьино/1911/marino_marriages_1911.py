@@ -1,0 +1,50 @@
+from verso.ru.dsl import (Month, RecordDefaults, Side, marriage, marriage_month, marriage_records,
+                          person)
+from verso.ru.dsl.statuses import PEASANT_FEMALE, PEASANT_MALE
+
+# Source: ГАРО ф.627 оп.279 д.37 (Сергиевская церковь с. Эммануиловка, 1911).
+# Read in full for Марьино on 2026-09-26; records added by that sweep are reviewed=False.
+marino_marriages_1911 = marriage_records(
+    "ГАРО", "627", "279", "37", "Эммануиловка", "Сергиевская", 1911,
+    *marriage_month(Month.FEBRUARY,
+                    marriage(1, 9,
+                             groom=person("Алексей", "Иоакимов", "Коржавин"), groom_age=34, groom_marriage_num=2,
+                             bride=person("Александра", "Миронова", "Марина", residence="Шаморга"), bride_age=43, bride_marriage_num=2,
+                             witness1=person("Антон", "Егоров", "Зрюев"),
+                             witness2=person("Федор", "Васильев", "Черкасов"),
+                             witness3=person("Алексей", "Павлов", "Колдамов"),
+                             witness4=person("Александр", "Иванов", "Романов")),
+                    ),
+    *marriage_month(Month.APRIL,
+                    marriage(4, 17, reviewed=False,
+                             groom=person("Василий", "Ивановъ", "Кузнецовъ", residence="Жданная"), groom_age=18, groom_marriage_num=1,
+                             bride=person("Евдокія", "Иванова", "Моисеева"), bride_age=18, bride_marriage_num=1,
+                             witness1=person("Василий", "Ѳеодоровъ", "Калугинъ", side=Side.GROOM, comment="деревня не названа"),
+                             witness2=person("Осипъ", "Степановъ", "Кузинъ", side=Side.GROOM, comment="деревня не названа"),
+                             witness3=person("Иванъ", "Ивановъ", "Кузнецовъ", side=Side.BRIDE, comment="деревня не названа"),
+                             witness4=person("Андрей", "Ивановъ", "Плетневъ", side=Side.BRIDE, comment="деревня не названа")),
+                    marriage(5, 17, reviewed=False,
+                             groom=person("Николай", "Павловъ", "Воробьевъ"), groom_age=18, groom_marriage_num=1,
+                             bride=person("Екатерина", "Иванова", "Свищова"), bride_age=18, bride_marriage_num=1,
+                             witness1=person("Николай", "Зотовъ", "Воробьевъ"),
+                             witness2=person("Яковъ", "Егоровъ", "Калугинъ"),
+                             witness3=person("Тимоѳей", "Григорьевъ", "Спицынъ", side=Side.BRIDE, comment="деревня не названа; фамилия читается неуверенно"),
+                             witness4=person("Василий", "Ѳеодоровъ", "Шустовъ", side=Side.BRIDE, comment="деревня не названа")),
+                    ),
+    *marriage_month(Month.MAY,
+                    marriage(8, 22,
+                             groom=person("Василий", "Егоров", "Зрюев"), groom_age=18, groom_marriage_num=1,
+                             bride=person("Матрона", "Димитриева", "Коржавина"), bride_age=18, bride_marriage_num=1,
+                             witness1=person("Степан", "Михайлов", "Сауткин"),
+                             witness2=person("Василий", "Андреев", "Иничков"),
+                             witness3=person("Степан", "Егоров", "Калугин"),
+                             witness4=person("Александр", "Иванов", "Романов")),
+                    ),
+    defaults=RecordDefaults(
+        residence="Марьино",
+        status_male=PEASANT_MALE,
+        status_female=PEASANT_FEMALE,
+        status_bride=PEASANT_FEMALE,
+        status_groom=PEASANT_MALE
+    ),
+)

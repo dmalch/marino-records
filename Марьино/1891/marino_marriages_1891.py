@@ -1,0 +1,52 @@
+from verso.ru.dsl import (Month, RecordDefaults, Side, marriage, marriage_month, marriage_records,
+                          person)
+from verso.ru.dsl.statuses import (PEASANT_DAUGHTER_MAIDEN, PEASANT_FEMALE, PEASANT_MALE,
+                                   PEASANT_WIDOW, PRIVATE_SOLDIER)
+
+# Source: ГАРО ф.627 оп.255 д.378 (Сергиевская церковь с. Эммануиловка, 1891).
+# Read in full for Марьино on 2026-09-26; records added by that sweep are reviewed=False.
+marino_marriages_1891 = marriage_records(
+    "ГАРО", "627", "255", "378", "Эммануиловка", "Сергиевская", 1891,
+    *marriage_month(Month.JANUARY,
+                    marriage(1, 7, reviewed=False,
+                             groom=person("Никита", "Яковлевъ", "Потапушкинъ", status=PRIVATE_SOLDIER, comment="«Рядовой Старооскольскаго 128-го пѣхотнаго полка»; деревня не названа, поручители марьинские; в 1893–1897 гг. марьинский «Никита Григорьевъ Потапушкинъ» с женой Екатериной Петровой — отчество другое"), groom_age=24, groom_marriage_num=1,
+                             bride=person("Екатерина", "Петрова", "Куликова", residence="Новая (Больше-Проломская вол.)", status=PEASANT_WIDOW, comment="«Спасскаго уѣзда, деревни Новой» — какая из Новых, не уточнено"), bride_age=24, bride_marriage_num=2,
+                             witness1=person("Иванъ", "Егоровъ", "Телѣгинъ", comment="в книге «Телегинъ»"),
+                             witness2=person("Николай", "Антиповъ", "Галушкинъ"),
+                             witness3=person("Егоръ", "Ѳеодоровъ", "Телѣгинъ", side=Side.BRIDE, comment="«той же деревни» — Марьиной; в книге «Телегинъ»"),
+                             witness4=person("Михаилъ", "Михайловъ", "Воробьевъ", side=Side.BRIDE)),
+                    ),
+    *marriage_month(Month.FEBRUARY,
+                    marriage(3, 17, reviewed=False,
+                             groom=person("Егоръ", "Михайловъ", "Воробьевъ", status="уволенный в запас армии рядовой"), groom_age=28, groom_marriage_num=2,
+                             bride=person("Евдокія", "Степанова", "Епишкина"), bride_age=19, bride_marriage_num=1,
+                             witness1=person("Михаилъ", "Михайловъ", "Воробьевъ"),
+                             witness2=person("Петръ", "Степановъ", "Моисеевъ"),
+                             witness3=person("Даніилъ", "Степановъ", "Епишкинъ", side=Side.BRIDE),
+                             witness4=person("Степанъ", "Матвѣевъ", "Черкасовъ", side=Side.BRIDE)),
+                    marriage(4, 17,
+                             groom=person("Иван", "Петров", "Кукушкин", residence="Мануилово"),
+                             groom_marriage_num=1, groom_age=18,
+                             bride=person("Анастасия", "Иванова", "Мыльникова"), bride_age=20,
+                             witness1=person("Алексей", "Васильев", "Кукушкин", residence="Мануилово"),
+                             witness2=person("Василий", "Родионов", "Головачев", residence="Мануилово"),
+                             witness3=person("Иван", "Димитриев", "Мыльников"),
+                             witness4=person("Василий", "Иванов", "Мыльников")),
+                    ),
+    *marriage_month(Month.JULY,
+                    marriage(13, 8, reviewed=False,
+                             groom=person("Иванъ", "Димитріевъ", "Грибинъ", residence="Мануилово", comment="первая жена Ирина Макарова погребена 10.05.1891 (ч. 3 ж.№4)"), groom_age=28, groom_marriage_num=2,
+                             bride=person("Дарія", "Ефимова", "Свищева", status=PEASANT_WIDOW, comment="вероятно, вдова Александра Касмина Свищева, погребённого 4.05.1891 (ч. 3 м.№6)"), bride_age=21, bride_marriage_num=2,
+                             witness1=person("Иванъ", "Васильевъ", "Горынинъ", residence="Мануилово"),
+                             witness2=person("Василій", "Савельевъ", "Горынинъ", residence="Мануилово"),
+                             witness3=person("Флоръ", "Михайловъ", "Толмачевъ", residence="Мануилово", side=Side.BRIDE, comment="«того же села»"),
+                             witness4=person("Ѳеодоръ", "Спиридоновъ", "Епишкинъ", residence="Мануилово", side=Side.BRIDE, comment="«того же села»")),
+                    ),
+    defaults=RecordDefaults(
+        residence="Марьино",
+        status_male=PEASANT_MALE,
+        status_female=PEASANT_FEMALE,
+        status_bride=PEASANT_DAUGHTER_MAIDEN,
+        status_groom=PEASANT_MALE
+    ),
+)

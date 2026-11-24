@@ -1,5 +1,4 @@
-from verso.ru.dsl import (EventDate, Month, WwiiDocumentType, external_source_records, person,
-                          wwii_record)
+from verso.ru.dsl import (EventDate, Month, WwiiDocumentType, external_source_records, person, wwii_record)
 
 # WWII (ВОВ) участники — pamyat-naroda.ru, событие 1942 г. (выбытие/прибытие в часть, пропажа без вести).
 
@@ -202,5 +201,93 @@ marino_external_sources_1942 = external_source_records(
         fund="48 ЗТТБС",
         inventory="410183с",
         case="3",
+    ),
+    # ВОВ — pamyat-naroda.ru, добавлено 18.11.2026: люди, найденные в корпусе (реестр —
+    # EXTERNAL_SOURCES.md и external_sources/vov_pamyat.tsv).
+    wwii_record(
+        person("Василий", "Иванович", "Головачев", residence="Марьино"),
+        source_url="https://pamyat-naroda.ru/heroes/memorial-chelovek_donesenie51544145/",
+        reviewed=False,
+        scan_file="scans/pamyat_058-0818883-1008_00000184.jpg",
+        birth_date=EventDate(1907),
+        rank="красноармеец",
+        military_unit="115 осбр",
+        casualty_reason="пропал без вести",
+        document_type=WwiiDocumentType.CASUALTY_REPORT,
+        draft_board="Шацкий РВК, Рязанская обл., Шацкий р-н",
+        date=EventDate(1942, Month.SEPTEMBER, 14),
+        casualty_date=EventDate(1942, Month.SEPTEMBER, 14),
+        archive="ЦАМО",
+        fund="58",
+        inventory="818883",
+        case="1008",
+        comment=(
+            "На скане (Именной список безвозвратных потерь начальствующего и рядового состава (форма № 2; "
+            "полк, дивизия и даты в шапке не заполнены), лист 94(?), № строки 30): Головачев Василий "
+            "Иванович, красноармеец, стрелок, б/п, уроженец Рязанская обл. Шацкий р-н д. Марьено(?), 1907 "
+            "г.р.; призван Шацким РВК Рязанской обл.; «тоже» (т.е. пропал без вести в бою под дер. "
+            "Городище Городищенского р-на Сталинградской обл.) 14.09.42. Родные: Рязанская обл. Шацкий "
+            "р-н, дер. Марьено(?), мать Головачева Анастасия Григорьевна. Место рождения на карточке: "
+            "Рязанская обл., Шацкий р-н, д. Марьино. Корпус: рождение 30.12.1906 (МК 1906 № 27), отец "
+            "Головачев Иван Даниилович, мать Головачева Анастасия Григорьевна."
+        ),
+    ),
+    wwii_record(
+        person("Василий", "Васильевич", "Калугин", residence="Марьино"),
+        source_url="https://pamyat-naroda.ru/heroes/kld-card_ran88252805/",
+        reviewed=False,
+        birth_date=EventDate(1903),
+        rank="красноармеец",
+        military_unit="106 сп",
+        document_type=WwiiDocumentType.WOUND_CARD,
+        archive="Филиал ЦАМО (военно-медицинских документов)",
+        fund="Картотека общего учета",
+        archive_location="шкаф: Калубов - Калугин Ив Зах, ящик 111-09",
+        comment=(
+            "Документ без даты; файл 1942 г. — по другому документу того же человека. Госпиталь: ЭГ 4634. "
+            "Место рождения на карточке: Рязанская обл., Шацкий р-н, д. Марьино. Корпус: рождение "
+            "01.01.1903 (МК 1903 № 1), отец Калугин Василий Васильевич, мать Калугина Татьяна Андреевна."
+        ),
+    ),
+    wwii_record(
+        person("Василий", "Васильевич", "Калугин", residence="Марьино"),
+        source_url="https://pamyat-naroda.ru/heroes/kld-card_ran88252841/",
+        reviewed=False,
+        birth_date=EventDate(1903),
+        rank="красноармеец",
+        military_unit="1106 сп 331 сд",
+        casualty_reason="выбыл из госпиталя",
+        document_type=WwiiDocumentType.WOUND_CARD,
+        date=EventDate(1942, Month.AUGUST, 27),
+        casualty_date=EventDate(1942, Month.AUGUST, 27),
+        archive="Филиал ЦАМО (военно-медицинских документов)",
+        fund="Картотека общего учета",
+        archive_location="шкаф: Калубов - Калугин Ив Зах, ящик 111-09",
+        comment=(
+            "Госпиталь: ЭГ 4634. Место рождения на карточке: Рязанская обл., Шацкий р-н, д. Марьино. "
+            "Корпус: рождение 01.01.1903 (МК 1903 № 1), отец Калугин Василий Васильевич, мать Калугина "
+            "Татьяна Андреевна."
+        ),
+    ),
+    wwii_record(
+        person("Павел", "Иванович", "Мыльников", residence="Марьино"),
+        source_url="https://pamyat-naroda.ru/heroes/isp-chelovek_spisok3100410/",
+        reviewed=False,
+        birth_date=EventDate(1904),
+        rank="красноармеец",
+        military_unit="14 сп 72 сд",
+        document_type=WwiiDocumentType.UNIT_ROSTER,
+        draft_board="Шацкий РВК, Рязанская обл., Шацкий р-н",
+        draft_date=EventDate(1942),
+        date=EventDate(1942),
+        archive="ЦАМО",
+        fund="6108",
+        inventory="82737",
+        case="2",
+        comment=(
+            "Дата — призыва. Место рождения на карточке: Рязанская обл., Шацкий р-н, д. Марьино. Корпус: "
+            "рождение 06.11.1904 (МК 1904 № 18), отец Мыльников Иван Семенович, мать Мыльникова "
+            "Александра Сергеевна."
+        ),
     ),
 )

@@ -1,5 +1,4 @@
-from verso.ru.dsl import (EventDate, Month, WwiiDocumentType, external_source_records, person,
-                          wwii_record)
+from verso.ru.dsl import (EventDate, Month, WwiiDocumentType, external_source_records, person, wwii_record)
 from verso.ru.dsl.marital_status import MARRIED
 
 # WWII (ВОВ) участники — pamyat-naroda.ru, событие 1943 г. (ранения, безвозвратные потери, пересыльные пункты).
@@ -170,6 +169,63 @@ marino_external_sources_1943 = external_source_records(
             "Место захоронения: Ленинградская обл., Валдайский р-н, Русско-Новиковский с/с, с. Русские Новики, "
             "братское кладбище, захоронение №89587024. "
             "Жена: Коржавина Д. П."
+        ),
+    ),
+    # ВОВ — pamyat-naroda.ru, добавлено 18.11.2026: люди, найденные в корпусе (реестр —
+    # EXTERNAL_SOURCES.md и external_sources/vov_pamyat.tsv).
+    wwii_record(
+        person("Александр", "Федорович", "Моисеев", residence="Марьино"),
+        source_url="https://pamyat-naroda.ru/heroes/memorial-chelovek_donesenie1164576666/",
+        reviewed=False,
+        scan_file="scans/pamyat_058-0018001-0623_00000121.jpg",
+        birth_date=EventDate(1900),
+        rank="красноармеец",
+        military_unit="396 сп 135 сд",
+        casualty_reason="убит",
+        document_type=WwiiDocumentType.CASUALTY_REPORT,
+        date=EventDate(1943, Month.JULY, 30),
+        casualty_date=EventDate(1943, Month.JULY, 30),
+        archive="ЦАМО",
+        fund="1358",
+        inventory="2",
+        case="21",
+        comment=(
+            "На скане (Именной список безвозвратных потерь сержантского и рядового состава 396 стр. "
+            "полка, дивизия «155 69»(?), за период с 20.7 по 30 августа 1943 г. Форма № 2, приложение к № "
+            "34658с, строка № 100): № 100. Моисеев Александр Федорович, кр-ц(?), пулемётчик, "
+            "беспартийный, 1900 г.р., Рязанская обл., Шацкий р-н, д. Марьино; призван Шацким РВК "
+            "Рязанской обл. Убит в бою 30.7.43. Похоронен: опушка леса сев. д. ?(не читается). Родные: "
+            "Жена Степанида Павловна Моисеева, адрес тот же. Первичное место захоронения: Орловская обл., "
+            "Хвастовичский р-н, д. Берестна, лес, опушка. Место рождения на карточке: Рязанская обл., "
+            "Шацкий р-н, д. Марьино. Корпус: рождение 12.05.1900 (МК 1900 № 20), отец Моисеев Федор "
+            "Васильевич, мать Моисеева Евдокия Георгиевна."
+        ),
+    ),
+    wwii_record(
+        person("Александр", "Федорович", "Моисеев", residence="Марьино"),
+        source_url="https://pamyat-naroda.ru/heroes/memorial-chelovek_donesenie2793409/",
+        reviewed=False,
+        scan_file="scans/pamyat_058-0018001-0623_00000121.jpg",
+        birth_date=EventDate(1900),
+        rank="красноармеец",
+        military_unit="135 сд",
+        casualty_reason="убит",
+        document_type=WwiiDocumentType.CASUALTY_REPORT,
+        date=EventDate(1943, Month.JULY, 30),
+        casualty_date=EventDate(1943, Month.JULY, 30),
+        archive="ЦАМО",
+        fund="58",
+        inventory="18001",
+        case="623",
+        comment=(
+            "На скане (Именной список безвозвратных потерь сержантского и рядового состава 396 стр. полка "
+            "135 сд с 20.7 по 30 августа 1943 г. (приложение к № 34658с, форма № 2), строка 100): "
+            "Пулемётчик, б/парт, род. 1900, Рязанская обл., Шацкий р-н, д. Марьино; призван Шацким РВК "
+            "Рязанской обл.; в бою убит 30.7.43; похоронен на опушке леса сев. д. Б?(не читается). "
+            "Родные: Жена Степанида Павловна Моисеева, адрес тот же. Первичное место захоронения: "
+            "Орловская обл., Хвастовичский р-н, д. Борейка, севернее, опушка леса. Место рождения на "
+            "карточке: Рязанская обл., Шацкий р-н, дер. Марьино. Корпус: рождение 12.05.1900 (МК 1900 № "
+            "20), отец Моисеев Федор Васильевич, мать Моисеева Евдокия Георгиевна."
         ),
     ),
 )

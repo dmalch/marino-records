@@ -1,5 +1,4 @@
-from verso.ru.dsl import (EventDate, Month, WwiiDocumentType, external_source_records, person,
-                          wwii_record)
+from verso.ru.dsl import (EventDate, Month, WwiiDocumentType, external_source_records, person, wwii_record)
 from verso.ru.dsl.marital_status import MARRIED
 
 # WWII (ВОВ) участники — pamyat-naroda.ru, событие 1941 г. (призыв / выбытие / пленение).
@@ -95,6 +94,46 @@ marino_external_sources_1941 = external_source_records(
         case="597",
         comment=(
             "Жена: Коржавина Екатерина Алексеевна. "
+        ),
+    ),
+    # ВОВ — pamyat-naroda.ru, добавлено 18.11.2026: люди, найденные в корпусе (реестр —
+    # EXTERNAL_SOURCES.md и external_sources/vov_pamyat.tsv).
+    wwii_record(
+        person("Яков", "Николаевич", "Калугин", residence="Марьино"),
+        source_url="https://pamyat-naroda.ru/heroes/isp-chelovek_spisok14776101/",
+        reviewed=False,
+        birth_date=EventDate(1911),
+        military_unit="10 оуап",
+        document_type=WwiiDocumentType.UNIT_ROSTER,
+        draft_date=EventDate(1941, Month.JUNE, 23),
+        date=EventDate(1941, Month.JUNE, 23),
+        archive="ЦАМО",
+        fund="25041",
+        inventory="426314с",
+        case="1",
+        comment=(
+            "Дата — призыва. Место рождения на карточке: Рязанская обл., Шацкий р-н, д. Марьино. Корпус: "
+            "рождение 01.03.1911 (МК 1911 № 8), отец Калугин Николай Павлович, мать Калугина Евдокия "
+            "Михайловна."
+        ),
+    ),
+    wwii_record(
+        person("Яков", "Николаевич", "Калугин", residence="Марьино"),
+        source_url="https://pamyat-naroda.ru/heroes/isp-chelovek_spisok14055346/",
+        reviewed=False,
+        birth_date=EventDate(1911),
+        military_unit="10 оуап",
+        document_type=WwiiDocumentType.UNIT_ROSTER,
+        draft_date=EventDate(1941, Month.JUNE, 26),
+        date=EventDate(1941, Month.JUNE, 26),
+        archive="ЦАМО",
+        fund="25041",
+        inventory="426314с",
+        case="4",
+        comment=(
+            "Дата — призыва. Место рождения на карточке: Рязанская обл., Шацкий р-н, Маринский с/с, д. "
+            "Марино. Корпус: рождение 01.03.1911 (МК 1911 № 8), отец Калугин Николай Павлович, мать "
+            "Калугина Евдокия Михайловна."
         ),
     ),
 )

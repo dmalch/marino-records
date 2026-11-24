@@ -1,5 +1,4 @@
-from verso.ru.dsl import (EventDate, Month, WwiiDocumentType, external_source_records, person,
-                          wwii_record)
+from verso.ru.dsl import (EventDate, Month, WwiiDocumentType, external_source_records, person, wwii_record)
 
 # WWII (ВОВ) участники — pamyat-naroda.ru, событие 1944 г. (ранение, награждение).
 
@@ -40,5 +39,27 @@ marino_external_sources_1944 = external_source_records(
         fund="33",
         inventory="690155",
         case="5867",
+    ),
+    # ВОВ — pamyat-naroda.ru, добавлено 18.11.2026: люди, найденные в корпусе (реестр —
+    # EXTERNAL_SOURCES.md и external_sources/vov_pamyat.tsv).
+    wwii_record(
+        person("Николай", "Николаевич", "Воробьев", residence="Марьино"),
+        source_url="https://pamyat-naroda.ru/heroes/kld-card_ran104854913/",
+        reviewed=False,
+        birth_date=EventDate(1912),
+        rank="сержант",
+        military_unit="1247 сп 377 сд",
+        casualty_reason="выбыл в госпиталь 1014",
+        document_type=WwiiDocumentType.WOUND_CARD,
+        date=EventDate(1944, Month.MARCH, 9),
+        casualty_date=EventDate(1944, Month.MARCH, 9),
+        archive="Филиал ЦАМО (военно-медицинских документов)",
+        fund="Ленинградская картотека. 1943-1945 гг",
+        archive_location="шкаф: Волошин Т - Гаврилков, ящик 291-32",
+        comment=(
+            "Госпиталь: ЭГ 1170. Место рождения на карточке: Рязанская обл., Шацкий р-н, д. Марино. "
+            "Корпус: рождение 04.02.1912 (МК 1912 № 4), отец Воробьев Николай Павлович, мать Воробьева "
+            "Екатерина Ивановна."
+        ),
     ),
 )

@@ -1,5 +1,6 @@
 from verso.ru.dsl import Month, RecordDefaults, marriage, marriage_month, marriage_records, person
-from verso.ru.dsl.statuses import PEASANT_FEMALE, PEASANT_MAIDEN, PEASANT_MALE, SOLDIER, WIDOW
+from verso.ru.dsl.statuses import (PEASANT_FEMALE, PEASANT_MAIDEN, PEASANT_MALE, SOLDIER,
+                                   SOLDIER_WIDOW, WIDOW)
 
 # Source: ГАРО ф.627 оп.255 д.305 (Сергиевская церковь с. Эммануиловка, 1884).
 marino_marriages_1884 = marriage_records(
@@ -8,7 +9,7 @@ marino_marriages_1884 = marriage_records(
                     marriage(6, 15,
                              groom=person("Иван", "Степанов", status=SOLDIER, residence="Желанное"),
                              groom_marriage_num=2, groom_age=36,
-                             bride=person("Пелагея", "Александрова", "Мыльникова", status="вдова солдатка"),
+                             bride=person("Пелагея", "Александрова", "Мыльникова", status=SOLDIER_WIDOW, comment="вдова солдатка"),
                              bride_marriage_num=2, bride_age=36,
                              witness1=person("Димитрий", "Арефьев", "Мыльников"),
                              witness2=person("Павел", "Иванов", "Калугин"),

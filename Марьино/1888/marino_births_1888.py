@@ -51,7 +51,7 @@ marino_births_1888 = birth_records(
     *birth_month(Month.APRIL,
                  birth(16, Gender.MALE, 29, 30, reviewed=False,
                        child=person("Яковъ"),
-                       father=person("Михаилъ", "Зотовъ", "Воробьевъ", status="отданный в солдаты"),
+                       father=person("Михаилъ", "Зотовъ", "Воробьевъ", status=SOLDIER, comment="отданный в солдаты"),
                        mother=person("Марія", "Васильева"),
                        god_parent1=person("Алексѣй", "Васильевъ", "Кукушкинъ", residence="Мануилово"),
                        god_parent2=person("Стефанида", "Васильева", "Коршунова", residence="Мануилово"),

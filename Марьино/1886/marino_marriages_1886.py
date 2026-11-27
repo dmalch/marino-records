@@ -1,6 +1,6 @@
 from verso.ru.dsl import (Month, RecordDefaults, Relationship, Side, marriage, marriage_month,
                           marriage_records, person, relative)
-from verso.ru.dsl.statuses import PEASANT_DAUGHTER_MAIDEN, PEASANT_FEMALE, PEASANT_MALE
+from verso.ru.dsl.statuses import PEASANT_DAUGHTER_MAIDEN, PEASANT_FEMALE, PEASANT_MALE, SOLDIER
 
 # Source: ГАРО ф.627 оп.255 д.327 (Сергиевская церковь с. Эммануиловка, 1886).
 # Read in full for Марьино on 2026-09-27; records added by that sweep are reviewed=False.
@@ -25,7 +25,7 @@ marino_marriages_1886 = marriage_records(
                              witness3=person("Алексѣй", "Васильевъ", "Кукушкинъ", residence="Мануилово", side=Side.BRIDE),
                              witness4=person("Петръ", "Павловъ", "Кукушкинъ", residence="Мануилово", side=Side.BRIDE)),
                     marriage(6, 20, reviewed=False,
-                             groom=person("Ѳеодоръ", "Захаровъ", "Шустовъ", residence="Важная", status="уволенный в запас армии рядовой"), groom_age=27, groom_marriage_num=1,
+                             groom=person("Ѳеодоръ", "Захаровъ", "Шустовъ", residence="Важная", status=SOLDIER, comment="уволенный в запас армии рядовой"), groom_age=27, groom_marriage_num=1,
                              bride=person("Анисія", "Никитина", "Мазаева"), bride_age=18, bride_marriage_num=1,
                              relatives=[relative(person("Никита", "Михеевъ", "Мазаевъ", comment="«умершаго крестьянина»"), Relationship.FATHER, "невеста")],
                              witness1=person("Косма", "Захаровъ", "Шустовъ", residence="Важная", side=Side.GROOM, comment="«Касма»"),
@@ -35,7 +35,7 @@ marino_marriages_1886 = marriage_records(
                     ),
     *marriage_month(Month.MAY,
                     marriage(9, 9,
-                             groom=person("Иван", "Михайлов", "Воробьев", status="уволенный в запас армии рядовой"),
+                             groom=person("Иван", "Михайлов", "Воробьев", status=SOLDIER, comment="уволенный в запас армии рядовой"),
                              groom_age=30, groom_marriage_num=1,
                              bride=person("Стефанида", "Моисеева", "Бердянова", residence="Невеличка"),
                              bride_age=18,

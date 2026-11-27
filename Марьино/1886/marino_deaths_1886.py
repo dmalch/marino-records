@@ -22,7 +22,7 @@ marino_deaths_1886 = death_records(
                  ),
     *death_month(Month.MAY,
                  death(6, Gender.MALE, 12, 13, reviewed=False,
-                       deceased=person("Захаръ", "Яковлевъ", "Швейкинъ", status="уволенный в запас армии рядовой"), age=26,
+                       deceased=person("Захаръ", "Яковлевъ", "Швейкинъ", status=SOLDIER, comment="уволенный в запас армии рядовой"), age=26,
                        cause_of_death=CONSUMPTION),
                  ),
     *death_month(Month.JUNE,

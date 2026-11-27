@@ -1,6 +1,7 @@
 from verso.ru.dsl import (Month, RecordDefaults, Side, marriage, marriage_month, marriage_records,
                           person)
-from verso.ru.dsl.statuses import PEASANT_DAUGHTER_MAIDEN, PEASANT_FEMALE, PEASANT_MALE
+from verso.ru.dsl.statuses import (PEASANT_DAUGHTER_MAIDEN, PEASANT_FEMALE, PEASANT_MALE,
+                                   UNTER_OFFICER)
 
 # Source: ГАРО ф.627 оп.255 д.503 (Сергиевская церковь с. Эммануиловка, 1901).
 # Read in full for Марьино on 2026-09-26; records added by that sweep are reviewed=False.
@@ -13,7 +14,7 @@ marino_marriages_1901 = marriage_records(
                              witness1=person("Георгій", "Косьминъ", "Свищовъ"),
                              witness2=person("Михаилъ", "Косьминъ", "Свищовъ"),
                              witness3=person("Яковъ", "Георгіевъ", "Калугинъ"),
-                             witness4=person("Косма", "", "Свищовъ", status="отставной унтер-офицер", comment="отчество не записано; отец жениха")),
+                             witness4=person("Косма", "", "Свищовъ", status=UNTER_OFFICER, comment="отставной унтер-офицер; отчество не записано; отец жениха")),
                     marriage(4, 8,
                              groom=person("Антоний", "Георгиев", "Зрюев"), groom_age=18, groom_marriage_num=1,
                              bride=person("Анастасия", "Павлова", "Калугина"), bride_age=None,

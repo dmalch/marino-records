@@ -1,5 +1,5 @@
 from verso.ru.dsl import Gender, Month, RecordDefaults, birth, birth_month, birth_records, person
-from verso.ru.dsl.statuses import MAIDEN, PEASANT_FEMALE, PEASANT_MALE, PEASANT_WIFE
+from verso.ru.dsl.statuses import MAIDEN, PEASANT_FEMALE, PEASANT_MALE, PEASANT_WIFE, SOLDIER
 
 # Source: ГАРО ф.627 оп.279 д.17 (Сергиевская церковь с. Эммануиловка, 1909).
 # Read in full for Марьино on 2026-09-26; records added by that sweep are reviewed=False.
@@ -8,7 +8,7 @@ marino_births_1909 = birth_records(
     *birth_month(Month.JANUARY,
                  birth(8, Gender.FEMALE, 26, 26, reviewed=False,
                        child=person("Марія"),
-                       father=person("?", "Николаевъ", "Оськинъ", residence="Важная", status="рядовой, состоящий на действительной службе", comment="имя в корешке"),
+                       father=person("?", "Николаевъ", "Оськинъ", residence="Важная", status=SOLDIER, comment="рядовой, состоящий на действительной службе; имя в корешке"),
                        mother=person("Параскева", "Сергѣева"),
                        god_parent1=person("?", "Сергѣевъ", "Швейкинъ", comment="имя в корешке; «Деревни Марьиной» — на обоих восприемников"),
                        god_parent2=person("Агриппина", "Иванова", "Жукова", comment="в книге «Агри-» на переносе")),

@@ -1,6 +1,6 @@
 from verso.ru.dsl import Gender, Month, RecordDefaults, birth, birth_month, birth_records, person
 from verso.ru.dsl.statuses import (PEASANT_DAUGHTER_MAIDEN, PEASANT_FEMALE, PEASANT_MALE,
-                                   PEASANT_SPOUSE, PEASANT_WIFE, SOLDIER_LEGAL_WIFE)
+                                   PEASANT_SPOUSE, PEASANT_WIFE, SOLDIER, SOLDIER_LEGAL_WIFE)
 
 # Source: ГАРО ф.627 оп.255 д.169 (Сергиевская церковь с. Эммануиловка, 1862).
 # Read in full for Марьино on 2026-09-27; records added by that sweep are reviewed=False.
@@ -42,7 +42,7 @@ marino_births_1862 = birth_records(
                        god_parent2=person("Александра", "Никитина", "Романова", status=PEASANT_SPOUSE)),
                  birth(11, Gender.MALE, 16, 22,
                        child=person("Ѳеодоръ", comment="видимо, тот Ѳеодоръ, сынъ солдатки Татіаны Марковой, что погребён 8.08.1862 (ч. 3 м.№11)"),
-                       father=person("Степанъ", "Димитріевъ", status="билетный солдат", comment="«билетный солдатъ Суворовскаго полка»"),
+                       father=person("Степанъ", "Димитріевъ", status=SOLDIER, comment="«билетный солдатъ Суворовскаго полка»"),
                        mother=person("Татьяна", "Маркова", status=SOLDIER_LEGAL_WIFE),
                        god_parent1=person("Василій", "Захаровъ", "Зрюевъ"),
                        god_parent2=person("Настасія", "Филипова", "Зрюева", status=PEASANT_SPOUSE)),
@@ -50,13 +50,13 @@ marino_births_1862 = birth_records(
                        child=person("Егоръ"),
                        father=person("Михаилъ", "Ефимовъ", "Воробьевъ"),
                        mother=person("Евдокія", "Ѳеодорова"),
-                       god_parent1=person("Михаилъ", "Аникѣевъ", "Воробьевъ", status="билетный солдат"),
+                       god_parent1=person("Михаилъ", "Аникѣевъ", "Воробьевъ", status=SOLDIER, comment="билетный солдат"),
                        god_parent2=person("Агафія", "Васильева", "Головачева", status=PEASANT_SPOUSE)),
                  ),
     *birth_month(Month.AUGUST,
                  birth(15, Gender.FEMALE, 30, 31,
                        child=person("Вѣра", comment="№ в книге не проставлен, 15-я по порядку женских записей; видимо, та Вѣра, 1½ г., дочь солдатки Анны Родіоновой Телегиной, что погребена 7.01.1864"),
-                       father=person("Степанъ", "Ѳедоровъ", "Телегинъ", status="билетный солдат"),
+                       father=person("Степанъ", "Ѳедоровъ", "Телегинъ", status=SOLDIER, comment="билетный солдат"),
                        mother=person("Анна", "Петрова", status=SOLDIER_LEGAL_WIFE),
                        god_parent1=person("Ѳлоръ", "Григорьевъ", "Бычковъ"),
                        god_parent2=person("Матрена", "Нестерова", "Головачева", status=PEASANT_SPOUSE)),

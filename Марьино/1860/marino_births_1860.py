@@ -1,6 +1,6 @@
 from verso.ru.dsl import Gender, Month, RecordDefaults, birth, birth_month, birth_records, person
 from verso.ru.dsl.statuses import (PEASANT_FEMALE, PEASANT_MALE, PEASANT_SPOUSE, PEASANT_WIFE,
-                                   RETIRED_SOLDIER, SOLDIER_WIFE)
+                                   RETIRED_SOLDIER, SOLDIER, SOLDIER_WIFE)
 
 # Source: ГАРО ф.627 оп.255 д.165 (Сергиевская церковь с. Эммануиловка, 1860).
 # Read in full for Марьино on 2026-09-27; records added by that sweep are reviewed=False.
@@ -28,7 +28,7 @@ marino_births_1860 = birth_records(
                        god_parent2=person("Евдокія", "Ѳедорова", "Воробьева", status=PEASANT_SPOUSE)),
                  birth(5, Gender.FEMALE, 22, 24,
                        child=person("Анна"),
-                       father=person("Степанъ", "Ѳедоровъ", "Телегинъ", status="рядовой солдат"),
+                       father=person("Степанъ", "Ѳедоровъ", "Телегинъ", status=SOLDIER, comment="рядовой солдат"),
                        mother=person("Анна", "Иванова", status=SOLDIER_WIFE, comment="так в книге; в 1862 г. «Анна Петрова», в 1864 г. «Анна Родіонова Телегина»"),
                        god_parent1=person("Иванъ", "Ивановъ", "Каспиринъ", status=RETIRED_SOLDIER, comment="фамилия читается неуверенно; деревня не названа"),
                        god_parent2=person("Ольга", "Максимова", "Усадина", status=PEASANT_SPOUSE)),

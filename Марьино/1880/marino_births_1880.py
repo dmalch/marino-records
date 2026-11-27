@@ -1,6 +1,6 @@
 from verso.ru.dsl import Gender, Month, RecordDefaults, birth, birth_month, birth_records, person
 from verso.ru.dsl.statuses import (DYACHOK, MAIDEN, PEASANT_FEMALE, PEASANT_MALE, PEASANT_WIFE,
-                                   PRIVATE_SOLDIER, SOLDIER)
+                                   PRIVATE_SOLDIER, SOLDIER, UNTER_OFFICER)
 
 # Source: ГАРО ф.627 оп.255 д.260 (Сергиевская церковь с. Эммануиловка, 1880).
 # Read in full for Марьино on 2026-09-27; records added by that sweep are reviewed=False.
@@ -18,7 +18,7 @@ marino_births_1880 = birth_records(
                        child=person("Василій"),
                        father=person("Василій", "Петровъ", "Калугинъ", status=PRIVATE_SOLDIER),
                        mother=person("Варвара", "Яковлева"),
-                       god_parent1=person("Косма", "Кириловъ", "Свищевъ", status="отставной унтер-офицер", comment="«Касьма»; отчество читается неуверенно; деревня не названа"),
+                       god_parent1=person("Косма", "Кириловъ", "Свищевъ", status=UNTER_OFFICER, comment="отставной унтер-офицер; «Касьма»; отчество читается неуверенно; деревня не названа"),
                        god_parent2=person("Стефанида", "Николаева", "Калугина", comment="деревня не названа")),
                  birth(5, Gender.MALE, 21, 22,
                        child=person("Тимофей"),
@@ -54,7 +54,7 @@ marino_births_1880 = birth_records(
                        child=person("Андрей"),
                        father=person("Егоръ", "Ѳеодоровъ", "Зрюевъ"),
                        mother=person("Анастасія", "Петрова", comment="«Настасія»"),
-                       god_parent1=person("Косма", "Кириловъ", "Свищевъ", status="унтер-офицер Финляндского полка", comment="«Касма»; деревня не названа"),
+                       god_parent1=person("Косма", "Кириловъ", "Свищевъ", status=UNTER_OFFICER, comment="унтер-офицер Финляндского полка; «Касма»; деревня не названа"),
                        god_parent2=person("Анастасія", "Ѳеодорова", "Зрюева", status=MAIDEN, comment="«Настасія»; деревня не названа")),
                  ),
     *birth_month(Month.DECEMBER,
@@ -68,7 +68,7 @@ marino_births_1880 = birth_records(
                        child=person("Анастасия"),
                        father=person("Иван", "Димитриев", "Мыльников"),
                        mother=person("Мария", "Гаврилова"),
-                       god_parent1=person("Петр", "Евфремов", "Галушкин", residence="Алеменево", status="билетный рядовой"),
+                       god_parent1=person("Петр", "Евфремов", "Галушкин", residence="Алеменево", status=SOLDIER, comment="билетный рядовой"),
                        god_parent2=person("Татьяна", "Димитриева", "Марьинова", residence="Краснохолм")),
                  ),
     defaults=RecordDefaults(
